@@ -23,10 +23,26 @@ common deps
                , time
                , array
                , deepseq
+               , normaldistribution
 
 executable rpar
   import: deps
   main-is: rpar.hs
+  ghc-options: -threaded
+
+executable strat
+  import: deps
+  main-is: strat.hs
+  ghc-options: -threaded
+
+executable strat2
+  import: deps
+  main-is: strat2.hs
+  ghc-options: -threaded
+
+executable strat3
+  import: deps
+  main-is: strat3.hs
   ghc-options: -threaded
 
 executable sudoku1
@@ -38,7 +54,7 @@ executable sudoku2
   import: deps
   main-is: sudoku2.hs
   other-modules: Sudoku
-  ghc-options: -O2 -threaded
+  ghc-options: -threaded
 
 executable sudoku3
   import: deps
@@ -57,3 +73,21 @@ executable sudoku5
   main-is: sudoku5.hs
   other-modules: Sudoku
   ghc-options: -threaded
+
+executable kmeans
+  import: deps
+  hs-source-dirs: app/kmeans
+  main-is: kmeans.hs
+  other-modules: KMeansCore
+  ghc-options: -threaded
+
+executable GenSamples
+  import: deps
+  hs-source-dirs: app/kmeans
+  main-is: GenSamples.hs
+  other-modules: KMeansCore
+  build-depends: normaldistribution
+               , bytestring
+               , binary
+               , random
+  ghc-options: -O2
