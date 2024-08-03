@@ -66,10 +66,12 @@ Amdahl's law
 ### Example: The K-means problem
 
 ```bash
-cabal build GenSamples -O2
-cabal run GenSamples
+cabal run GenSamples -O2
 # => clusters
 # => params
 # => points
 # => points.bin
+cabal run kmeans seq -O2
+# (+RTS -lf) generates spark events in eventlog
+cabal run kmeans strat 64 -O2 -- +RTS -N4 -lf
 ```

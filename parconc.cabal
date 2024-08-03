@@ -23,7 +23,6 @@ common deps
                , time
                , array
                , deepseq
-               , normaldistribution
 
 executable rpar
   import: deps
@@ -80,6 +79,10 @@ executable kmeans
   main-is: kmeans.hs
   other-modules: KMeansCore
   ghc-options: -threaded
+  build-depends: bytestring
+               , binary
+               , vector
+               , monad-par
 
 executable GenSamples
   import: deps

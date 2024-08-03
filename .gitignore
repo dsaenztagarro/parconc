@@ -4,3 +4,5 @@ clusters
 params
 points
 points.bin
+# (+RTS -l) ignore generated eventlog files
+*.eventlog
