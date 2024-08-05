@@ -73,6 +73,17 @@ executable sudoku5
   other-modules: Sudoku
   ghc-options: -threaded
 
+executable GenSamples
+  import: deps
+  hs-source-dirs: app/kmeans
+  main-is: GenSamples.hs
+  other-modules: KMeansCore
+  build-depends: normaldistribution
+               , bytestring
+               , binary
+               , random
+  ghc-options: -O2
+
 executable kmeans
   import: deps
   hs-source-dirs: app/kmeans
@@ -84,13 +95,53 @@ executable kmeans
                , vector
                , monad-par
 
-executable GenSamples
+executable rsa
   import: deps
-  hs-source-dirs: app/kmeans
-  main-is: GenSamples.hs
-  other-modules: KMeansCore
-  build-depends: normaldistribution
-               , bytestring
-               , binary
-               , random
-  ghc-options: -O2
+  main-is: rsa.hs
+  build-depends: bytestring
+               , deepseq
+
+executable rsa1
+  import: deps
+  main-is: rsa1.hs
+  ghc-options: -threaded
+  build-depends: bytestring
+               , deepseq
+
+executable rsa2
+  import: deps
+  main-is: rsa2.hs
+  ghc-options: -threaded
+  build-depends: bytestring
+               , deepseq
+
+executable rsa-pipeline
+  import: deps
+  main-is: rsa-pipeline.hs
+  other-modules: Stream
+  build-depends: bytestring
+               , deepseq
+               , monad-par
+
+executable parmonad
+  import: deps
+  main-is: parmonad.hs
+  ghc-options: -threaded
+  build-depends: monad-par
+
+executable fwsparse
+  import: deps
+  main-is: fwsparse.hs
+  other-modules: SparseGraph MapCompat
+  hs-source-dirs: app/fwsparse
+  build-depends: random
+               , containers
+
+executable fwsparse1
+  import: deps
+  main-is: fwsparse1.hs
+  other-modules: SparseGraph MapCompat
+  hs-source-dirs: app/fwsparse
+  ghc-options: -threaded
+  build-depends: random
+               , containers

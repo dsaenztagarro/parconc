@@ -75,3 +75,9 @@ cabal run kmeans seq -O2
 # (+RTS -lf) generates spark events in eventlog
 cabal run kmeans strat 64 -O2 -- +RTS -N4 -lf
 ```
+
+### Parallelizing Lazy Streams with parBuffer
+
+```bash
+echo "Hello World!" | cabal run rsa encrypt - | cabal run rsa decrypt -
+```
